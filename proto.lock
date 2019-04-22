@@ -1,0 +1,193 @@
+{
+  "definitions": [
+    {
+      "protopath": "registry.proto",
+      "def": {
+        "messages": [
+          {
+            "name": "InitRequest",
+            "fields": [
+              {
+                "id": 1,
+                "name": "repository_url",
+                "type": "string"
+              }
+            ]
+          },
+          {
+            "name": "InitResponse",
+            "fields": [
+              {
+                "id": 1,
+                "name": "schema",
+                "type": "Schema"
+              },
+              {
+                "id": 2,
+                "name": "token",
+                "type": "string"
+              }
+            ]
+          },
+          {
+            "name": "GetRequest",
+            "fields": [
+              {
+                "id": 1,
+                "name": "schema_url",
+                "type": "string"
+              }
+            ]
+          },
+          {
+            "name": "GetResponse",
+            "fields": [
+              {
+                "id": 1,
+                "name": "schema",
+                "type": "Schema"
+              }
+            ]
+          },
+          {
+            "name": "StatusRequest",
+            "fields": [
+              {
+                "id": 1,
+                "name": "schema",
+                "type": "Schema"
+              },
+              {
+                "id": 2,
+                "name": "lockfile",
+                "type": "bytes"
+              }
+            ]
+          },
+          {
+            "name": "StatusResponse",
+            "fields": [
+              {
+                "id": 1,
+                "name": "warnings",
+                "type": "Warning",
+                "is_repeated": true
+              }
+            ]
+          },
+          {
+            "name": "CommitRequest",
+            "fields": [
+              {
+                "id": 1,
+                "name": "schema_url",
+                "type": "string"
+              },
+              {
+                "id": 2,
+                "name": "token",
+                "type": "string"
+              },
+              {
+                "id": 3,
+                "name": "force",
+                "type": "bool"
+              }
+            ]
+          },
+          {
+            "name": "CommitResponse",
+            "fields": [
+              {
+                "id": 1,
+                "name": "schema",
+                "type": "Schema"
+              },
+              {
+                "id": 2,
+                "name": "warnings",
+                "type": "Warning",
+                "is_repeated": true
+              }
+            ]
+          },
+          {
+            "name": "Warning",
+            "fields": [
+              {
+                "id": 1,
+                "name": "filepath",
+                "type": "string"
+              },
+              {
+                "id": 2,
+                "name": "message",
+                "type": "string"
+              }
+            ]
+          },
+          {
+            "name": "Schema",
+            "fields": [
+              {
+                "id": 1,
+                "name": "url",
+                "type": "string"
+              },
+              {
+                "id": 2,
+                "name": "origin",
+                "type": "string"
+              },
+              {
+                "id": 3,
+                "name": "lockfile",
+                "type": "bytes"
+              }
+            ],
+            "maps": [
+              {
+                "key_type": "string",
+                "field": {
+                  "id": 4,
+                  "name": "metadata",
+                  "type": "string"
+                }
+              }
+            ]
+          }
+        ],
+        "services": [
+          {
+            "name": "Protolock",
+            "rpcs": [
+              {
+                "name": "Init",
+                "in_type": "InitRequest",
+                "out_type": "InitResponse"
+              },
+              {
+                "name": "Get",
+                "in_type": "GetRequest",
+                "out_type": "GetResponse"
+              },
+              {
+                "name": "Status",
+                "in_type": "StatusRequest",
+                "out_type": "StatusResponse"
+              },
+              {
+                "name": "Commit",
+                "in_type": "CommitRequest",
+                "out_type": "CommitResponse"
+              }
+            ]
+          }
+        ],
+        "package": {
+          "name": "plm.registry.v1"
+        }
+      }
+    }
+  ]
+}
