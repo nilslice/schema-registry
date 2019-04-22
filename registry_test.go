@@ -8,8 +8,8 @@ import (
 
 	"github.com/nilslice/schema-registry/server"
 
+	pb "github.com/nilslice/schema-registry/v1/go/registrypb"
 	"github.com/stretchr/testify/assert"
-	pb "github.com/nilslice/schema-registry/go/registrypb"
 )
 
 func TestRegistryProtoCode(t *testing.T) {

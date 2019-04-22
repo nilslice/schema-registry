@@ -17,9 +17,10 @@ case "$OSTYPE" in
     *)        PLATFORM=unknown ;;
 esac
 
+WORK_DIR=$(pwd)
 PROTOC_VERSION=3.7.1
 PROTOC_ZIP=protoc-${PROTOC_VERSION}-${PLATFORM}-x86_64.zip
-PROTOC_DIR=protoc-3
+PROTOC_DIR=${WORK_DIR}/protoc-3
 PROTOC=$PROTOC_DIR/bin/protoc
 
 if [ ! -f "$PROTOC" ]; then
@@ -37,6 +38,7 @@ export GO111MODULE=on
 go get -u google.golang.org/grpc || true
 go get -u github.com/golang/protobuf/{proto,protoc-gen-go} || true
 
+cd v1
 echo Clearing out previously generated code...
 /bin/rm -rf go
 

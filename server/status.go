@@ -8,7 +8,7 @@ import (
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 
-	pb "github.com/nilslice/schema-registry/go/registrypb"
+	pb "github.com/nilslice/schema-registry/v1/go/registrypb"
 )
 
 func (s Service) Status(ctx context.Context, req *pb.StatusRequest) (*pb.StatusResponse, error) {
